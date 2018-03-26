@@ -1,5 +1,7 @@
+Source code of simple REST API used in technical article on how to build REST API using PHP. To read the article, see below or [click here](https://bilalshareef.github.io/building-rest-api-using-php/).
+
 # Building Rest API Using PHP
-In today’s world, different applications on different devices are connected with one another and the main reason behind it is APIs. Before looking into REST API, let’s see what is an API first. You might already be knowing what an API is. Since this post deals about REST API, let’s see a basic intro about API.
+In today's world, different applications on different devices are connected with one another and the main reason behind it is APIs. Before looking into REST API, let's see what is an API first. You might already be knowing what an API is. Since this post deals about REST API, let's see a basic intro about API.
 
 API stands for Application Programming Interface and the idea behind API is to connect different applications irrespective of their platforms to share information. Generally, API takes requests from different applications, processes it and gives back the response.
 
@@ -43,13 +45,15 @@ Most of you will already know what HTTP is. HTTP stands for Hyper Text Transfer 
 
 So in order to use REST APIs, we need a client which has the capability to use all the HTTP methods. Unfortunately, HTML is limited in this case. HTML can only send GET and POST requests which is not enough to use REST APIs.
 
-So we need a HTTP client library and that’s where cURL comes into place. cURL is the most widely used and most popular HTTP client library among PHP developers. We will use cURL while consuming REST APIs. So we will see it in a bit.
+So we need a HTTP client library and that's where cURL comes into place. cURL is the most widely used and most popular HTTP client library among PHP developers. We will use cURL while consuming REST APIs. So we will see it in a bit.
 
 ## Building a REST API using PHP
 
-Let’s build a simple REST API in PHP with what we have seen so far. Consider, you have an online product catalogue and you want your website and mobile application share the same information about the products. So let’s build an API which allows to add, update, read and delete products.
+Let's build a simple REST API in PHP with what we have seen so far. The final source code of the REST API which we will build is available on [Github](https://github.com/bilalshareef/building-rest-api-using-php).
 
-Let’s consider that example.com is your domain name and example.com/api/ is the location of the API which we are going to build. We need to add a PHP file(products.php) to that /api/ folder. The following table illustrates the URLs and HTTP methods which should be used to perform appropriate actions with our API.
+Consider, you have an online product catalogue and you want your website and mobile application share the same information about the products. So let's build an API which allows to add, update, read and delete products.
+
+Let's consider that example.com is your domain name and example.com/api/ is the location of the API which we are going to build. We need to add a PHP file(products.php) to that /api/ folder. The following table illustrates the URLs and HTTP methods which should be used to perform appropriate actions with our API.
 
 
 | HTTP Method | URL             | Action                                      |
@@ -72,7 +76,7 @@ Since URL rewriting itself is a big topic, we will not be able to discuss it her
 
 https://www.addedbytes.com/articles/for-beginners/url-rewriting-for-beginners/
 
-Let’s start by putting the following code to identify the HTTP request method.
+Let's start by putting the following code to identify the HTTP request method.
 
 ```php
 // Connect to database
@@ -207,7 +211,7 @@ function delete_product($product_id) {
 }
 ```
 
-If you look at all the above functions, then you will notice that we have used JSON to format the output data. So let’s put all the code we have discussed together and the final products.php file will have the following code.
+If you look at all the above functions, then you will notice that we have used JSON to format the output data. So let's put all the code we have discussed together and the final products.php file will have the following code.
 
 ```php
 // Connect to database
@@ -328,7 +332,7 @@ mysqli_close($connection);
 
 ## Consuming a REST API using PHP
 
-So far we have built the API and now let’s see how to consume it. As I told earlier, we will be using cURL here to consume the API. There are built in functions for cURL in PHP and the following are the functions we will be using.
+So far we have built the API and now let's see how to consume it. As I told earlier, we will be using cURL here to consume the API. There are built in functions for cURL in PHP and the following are the functions we will be using.
 
 a. Establish a connection - curl_init()
 b. Add request data - curl_setopt()

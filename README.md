@@ -1,41 +1,57 @@
 Source code of simple REST API used in technical article on how to build REST API using PHP. To read the article, see below or [click here](https://bilalshareef.github.io/building-rest-api-using-php/).
 
-# Building Rest API Using PHP
+# Building REST API Using PHP
 In today's world, different applications on different devices are connected with one another and the main reason behind it is APIs. Before looking into REST API, let's see what is an API first. You might already be knowing what an API is. Since this post deals about REST API, let's see a basic intro about API.
 
 API stands for Application Programming Interface and the idea behind API is to connect different applications irrespective of their platforms to share information. Generally, API takes requests from different applications, processes it and gives back the response.
 
 You can use APIs to do anyone of the following.
 
-a. Build an API to let third party applications to connect with your application.
+**a. Build an API to let third party applications to connect with your application.**
 ![](images/image-1.jpg?raw=true)
 
-b. Consume a third party API to connect and use their information.
+**b. Consume a third party API to connect and use their information.**
 ![](images/image-2.jpg?raw=true)
 
-c. Build an API to connect your own applications like your website and mobile app.
+**c. Build an API to connect your own applications like your website and mobile app.**
 ![](images/image-3.jpg?raw=true)
 
-## What is REST API? 
+## What is REST API?
 
 REST stands for Representational State Transfer and it means that the request and the response should contain a representation of the information i.e., should be in a certain format. So basically, the requests must use proper HTTP methods and the response must be in a proper format like JSON or XML instead of plain text.
 
 REST API is nothing but a normal API with a set of principles. We need to follow a set of rules while creating and consuming REST API. The rules include the following.
 
 1. Use appropriate HTTP methods while performing API calls. The following are the four primary HTTP methods which should be used to send and receive API requests.
-    a. GET – To read single or multiple records.
-    b. POST – To create a new record.
-    c. PUT – To Update a record.
-    d. DELETE – To delete a record.
+
+    <ol type="a">
+        <li>GET - To read single or multiple records.</li>
+        <li>POST - To create a new record.</li>
+        <li>PUT - To Update a record.</li>
+        <li>DELETE - To delete a record.</li>
+    </ol>
+
 2. Use proper URL hierarchy instead of using URL query string for API URLs.
-    a. Good – http://example.com/api/products/1
-    b. Bad – http://example.com/api/products.php?id=1
+
+    <ol type="a">
+        <li>Good - http://example.com/api/products/1</li>
+        <li>Bad - http://example.com/api/products.php?id=1</li>
+    </ol>
+
 3. Avoid using verbs as resource names in the API URL and use nouns and proper HTTP methods instead.
-    a. Good – http://example.com/api/products
-    b. Bad – http://example.com/api/products/add
+
+    <ol type="a">
+        <li>Good - http://example.com/api/products</li>
+        <li>Bad - http://example.com/api/products/add</li>
+    </ol>
+
 4. Use plurals for the resource names in the API URL.
-    a. Good – http://example.com/api/products
-    b. Bad – http://example.com/api/product
+
+    <ol type="a">
+        <li>Good - http://example.com/api/products</li>
+        <li>Bad - http://example.com/api/product</li>
+    </ol>
+
 5. Use HTTP response codes to indicate status of the requests.
 6. Response data should be in either JSON or XML format.
 
@@ -53,7 +69,7 @@ Let's build a simple REST API in PHP with what we have seen so far. The final so
 
 Consider, you have an online product catalogue and you want your website and mobile application share the same information about the products. So let's build an API which allows to add, update, read and delete products.
 
-Let's consider that example.com is your domain name and example.com/api/ is the location of the API which we are going to build. We need to add a PHP file(products.php) to that /api/ folder. The following table illustrates the URLs and HTTP methods which should be used to perform appropriate actions with our API.
+Let's consider that `example.com` is your domain name and `example.com/api/` is the location of the API which we are going to build. We need to add a PHP file(`products.php`) to that `/api/` folder. The following table illustrates the URLs and HTTP methods which should be used to perform appropriate actions with our API.
 
 
 | HTTP Method | URL             | Action                                      |
@@ -64,7 +80,7 @@ Let's consider that example.com is your domain name and example.com/api/ is the 
 | PUT         | /api/products/3 | Updates a single product of primary key 3   |
 | DELETE      | /api/products/7 | Deletes a single product of primary key 7   |
 
-The PHP file(products.php) is where we will put all our API code. Also note that we need to rewrite the URL in order to follow the REST rules. So add a .htaccess file to /api/ folder and put the following in it. So /api/products.php?product_id=5 becomes /api/products/5.
+The PHP file(`products.php`) is where we will put all our API code. Also note that we need to rewrite the URL in order to follow the REST rules. So add a `.htaccess` file to `/api/` folder and put the following in it. So `/api/products.php?product_id=5` becomes `/api/products/5`.
 
 ```
 RewriteEngine On # Turn on the rewriting engine
@@ -114,9 +130,9 @@ switch($request_method) {
 }
 ```
 
-In the above code, we first connect to the database where we will store all the products information. Then we use PHP super global variable $_SERVER to get the HTTP request method used by the API call. We use a switch case block to perform appropriate action.
+In the above code, we first connect to the database where we will store all the products information. Then we use PHP super global variable `$_SERVER` to get the HTTP request method used by the API call. We use a switch case block to perform appropriate action.
 
-To retrieve the products, we use the following get_products() function. If a single product is to be retrieved, then we pass the product id to this function. If product id is not passed, then this function retrieves all the products.
+To retrieve the products, we use the following `get_products()` function. If a single product is to be retrieved, then we pass the product id to this function. If product id is not passed, then this function retrieves all the products.
 
 ```php
 function get_products($product_id=0) {
@@ -135,7 +151,7 @@ function get_products($product_id=0) {
 }
 ```
 
-To insert a new product, we use the following insert_product() function. Since HTTP POST method will be used to make API calls to insert products, we get the details of the new product from the $_POST variable itself.
+To insert a new product, we use the following `insert_product()` function. Since HTTP POST method will be used to make API calls to insert products, we get the details of the new product from the `$_POST` variable itself.
 
 ```php
 function insert_product() {
@@ -161,7 +177,7 @@ function insert_product() {
 }
 ```
 
-To update a product, we use the following update_product() function. Since PHP does not have $_PUT variable similar to $_GET and $_POST to fetch the values passed, we use the input stream to get those values to update a product. We will see how to pass values through input stream while we consume the API.
+To update a product, we use the following `update_product()` function. Since PHP does not have `$_PUT` variable similar to `$_GET` and `$_POST` to fetch the values passed, we use the input stream to get those values to update a product. We will see how to pass values through input stream while we consume the API.
 
 
 ```php
@@ -189,7 +205,7 @@ function update_product($product_id) {
 }
 ```
 
-To delete a product, we use the following delete_product() function. We get the product id of the product to be deleted from the $_GET variable.
+To delete a product, we use the following `delete_product()` function. We get the product id of the product to be deleted from the `$_GET` variable.
 
 ```php
 function delete_product($product_id) {
@@ -211,7 +227,7 @@ function delete_product($product_id) {
 }
 ```
 
-If you look at all the above functions, then you will notice that we have used JSON to format the output data. So let's put all the code we have discussed together and the final products.php file will have the following code.
+If you look at all the above functions, then you will notice that we have used JSON to format the output data. So let's put all the code we have discussed together and the final `products.php` file will have the following code.
 
 ```php
 // Connect to database
@@ -334,14 +350,16 @@ mysqli_close($connection);
 
 So far we have built the API and now let's see how to consume it. As I told earlier, we will be using cURL here to consume the API. There are built in functions for cURL in PHP and the following are the functions we will be using.
 
-a. Establish a connection - curl_init()
-b. Add request data - curl_setopt()
-c. Send the request - curl_exec()
-d. Close the connection - curl_close()
+<ol type="a">
+    <li>Establish a connection - curl_init()</li>
+    <li>Add request data - curl_setopt()</li>
+    <li>Send the request - curl_exec()</li>
+    <li>Close the connection - curl_close()</li>
+</ol>
 
-The following code is used to get all the products. We pass the API URL to curl_init() function to establish connection with the server and store the connection handle in $ch variable. Here, we set two options using curl_setopt() function. CURLOPT_HTTPGET is used to denote that the HTTP request method is GET and CURLOPT_RETURNTRANSFER is used to denote that the response must return the value instead of outputting it out directly.
+The following code is used to get all the products. We pass the API URL to `curl_init()` function to establish connection with the server and store the connection handle in `$ch` variable. Here, we set two options using `curl_setopt()` function. `CURLOPT_HTTPGET` is used to denote that the HTTP request method is GET and `CURLOPT_RETURNTRANSFER` is used to denote that the response must return the value instead of outputting it out directly.
 
-Then the request is sent using the curl_exec() function and store the response in $response_json variable. Finally, we close the connection using curl_close(). Since the response will be a JSON string, we need to decode the string to convert it to a PHP array.
+Then the request is sent using the `curl_exec()` function and store the response in `$response_json` variable. Finally, we close the connection using `curl_close()`. Since the response will be a JSON string, we need to decode the string to convert it to a PHP array.
 
 ```php
 $url = 'http://example.com/api/products';
@@ -365,7 +383,7 @@ curl_close($ch);
 $response = json_decode($response_json, true);
 ```
 
-The following code is used to add a new product. This time we have added two new cURL options. CURLOPT_POST is used to denote that the HTTP request method is POST and CURLOPT_POSTFIELDS is used to attach the POST data.
+The following code is used to add a new product. This time we have added two new cURL options. `CURLOPT_POST` is used to denote that the HTTP request method is POST and `CURLOPT_POSTFIELDS` is used to attach the POST data.
 
 ```php
 $data = array(
@@ -384,7 +402,7 @@ curl_close($ch);
 $response = json_decode($response_json, true);
 ```
 
-The following code is used to update a product. I have used CURLOPT_CUSTOMREQUEST to denote that the HTTP request method is PUT. Since there is no specific constant to attach PUT data using curl_setopt() function, we are using CURLOPT_POSTFIELDS which we used in POST request. But this time, we will not pass the data as an array. Instead, we will pass it as a query string using http_build_query() function. This API call will update the product with primary key 3.
+The following code is used to update a product. I have used `CURLOPT_CUSTOMREQUEST` to denote that the HTTP request method is PUT. Since there is no specific constant to attach PUT data using `curl_setopt()` function, we are using `CURLOPT_POSTFIELDS` which we used in POST request. But this time, we will not pass the data as an array. Instead, we will pass it as a query string using `http_build_query()` function. This API call will update the product with primary key 3.
 
 ```php
 $data = array(
@@ -403,7 +421,7 @@ curl_close($ch);
 $response = json_decode($response_json, true);
 ```
 
-The following code is used to delete a product. As you can see, I have used CURLOPT_CUSTOMREQUEST to denote the DELETE HTTP request method and this API call will delete the product with primary key 7.
+The following code is used to delete a product. As you can see, I have used `CURLOPT_CUSTOMREQUEST` to denote the DELETE HTTP request method and this API call will delete the product with primary key 7.
 
 ```php
 $url = 'http://example.com/api/products/7';

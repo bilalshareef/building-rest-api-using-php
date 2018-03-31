@@ -1,0 +1,352 @@
+/* CSS Resets */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Common Styles */
+body {
+    font-size: 16px;
+    font-family: 'Saira Semi Condensed', sans-serif;
+    color: #1E1B18;
+}
+.button-1 {
+    text-decoration: none;
+    color: #333538;
+    border: 2px solid #333538;
+    border-radius: 5px;
+    padding: 0 20px;
+    line-height: 36px;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: background-color .3s ease-out, color .3s ease-out;
+    -moz-transition: background-color .3s ease-out, color .3s ease-out;
+    -o-transition: background-color .3s ease-out, color .3s ease-out;
+    transition: background-color .3s ease-out, color .3s ease-out;
+}
+.button-1:hover {
+    background-color: #333538;
+    color: #FF6384;
+}
+.button-2 {
+    text-decoration: none;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 0 20px;
+    line-height: 36px;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #333538;
+    border: 0;
+    -webkit-transition: box-shadow .3s ease-out;
+    -moz-transition: box-shadow .3s ease-out;
+    -o-transition: box-shadow .3s ease-out;
+    transition: box-shadow .3s ease-out;
+}
+.button-2:hover {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Main Styles */
+.home-wrapper {
+    background: rgb(220, 220, 220);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.adp-logo-wrapper {
+    height: 100px;
+}
+.adp-logo-wrapper h1 {
+    font-size: 50px;
+    line-height: 100px;
+}
+.home-wrapper p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+.controls-wrapper {
+    display: flex;
+    margin-top: 40px;
+}
+.controls-wrapper select {
+    height: 40px;
+    font: inherit;
+    border: 2px solid black;
+    padding: 5px;
+    margin-right: 20px;
+    outline: none;
+}
+.controls-wrapper button {
+    margin-right: 10px;
+}
+.controls-wrapper button:last-child {
+    margin-right: auto;
+}
+.horizontal-separator {
+    height: 1px;
+    width: 90%;
+    margin: 50px 0;
+    background: -webkit-linear-gradient(0deg, transparent, #333538, transparent);
+    background: -o-linear-gradient(0deg, transparent, #333538, transparent);
+    background: -moz-linear-gradient(0deg, transparent, #333538, transparent);
+    background: linear-gradient(90deg, transparent, #333538, transparent);
+}
+.buttons-wrapper {
+    display: flex
+}
+.buttons-wrapper a {
+    margin-right: 20px;
+}
+.buttons-wrapper a:last-child {
+    margin-right: auto;
+}
+.button-2.blue {
+    background-color: #36A2EB;
+}
+.button-2.green {
+    background-color: #4BC0C0;
+}
+.button-2.red {
+    background-color: #FF6384;
+}
+.credit-info {
+    position: absolute;
+    bottom: 10px;
+}
+.credit-info a {
+    text-decoration: none;
+    color: #36A2EB;
+}
+.page-top {
+    background-color: rgb(220, 220, 220);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+.page-top .adp-logo-wrapper {
+    height: 60px;
+    margin-bottom: 30px;
+}
+.page-top .adp-logo-wrapper h1 {
+    line-height: 60px;
+}
+.page-wrapper {
+    width: 100%;
+}
+.sub-page-wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+h2 {
+    font-size: 36px;
+    color: #36A2EB;
+    margin: 20px 0;
+}
+h3 {
+    font-size: 30px;
+    color: #FF6384;
+    margin: 30px 0 15px 0;
+}
+p {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+p a {
+    color: #36A2EB;
+    text-decoration: none;
+}
+p a:hover {
+    text-decoration: underline;
+}
+p span.code {
+    background-color: #f0f0f0;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+.page-wrapper .credit-info {
+    position: static;
+    text-align: center;
+    margin-bottom: 10px;
+}
+ul {
+    margin-bottom: 15px;
+}
+li {
+    margin-left: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blue-text {
+    color: #36A2EB;
+}
+.bold-text {
+    font-weight: 600;
+}
+table {
+    margin-bottom: 15px;
+}
+table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+table th {
+    font-weight: 600;
+}
+table th, table td {
+    border: 1px solid #dfe2e5;
+    padding: 10px 15px;
+}
+code {
+    line-height: 25px;
+}
+
+@media (max-width: 1024px) {
+    .sub-page-wrapper {
+        width: 90%;
+    }
+}
+@media (max-width: 650px) {
+    .adp-logo-wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+    .home-wrapper p {
+        width: 80%;
+        font-size: 16px;
+    }
+    .page-top {
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .controls-wrapper select {
+        height: 30px;
+        padding: 0 5px;
+        margin-right: 10px;
+    }
+    .controls-wrapper .button-1 {
+        font-size: 14px;
+        line-height: 26px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .adp-logo-wrapper h1 {
+        font-size: 28px;
+    }
+    .controls-wrapper select {
+        margin-right: 10px;
+    }
+    .buttons-wrapper a {
+        margin-right: 10px;
+    }
+    .controls-wrapper .button-1 {
+        padding: 0 5px;
+    }
+}
+
+@media (max-height: 500px) {
+    .adp-logo-wrapper {
+        height: 80px;
+    }
+    .adp-logo-wrapper h1 {
+        line-height: 80px;
+    }
+    .controls-wrapper {
+        margin-top: 20px;
+    }
+    .horizontal-separator {
+        margin: 30px 0;
+    }
+}
+
+@media (max-height: 400px) {
+    .adp-logo-wrapper {
+        height: 50px;
+    }
+    .adp-logo-wrapper h1 {
+        line-height: 50px;
+    }
+    .controls-wrapper {
+        margin-top: 15px;
+    }
+    .horizontal-separator {
+        margin: 20px 0;
+    }
+}
+
+@media (max-height: 300px) {
+    .adp-logo-wrapper {
+        height: 32px;
+    }
+    .adp-logo-wrapper h1 {
+        line-height: 32px;
+        font-size: 28px;
+    }
+    .controls-wrapper {
+        margin-top: 0px;
+    }
+    .horizontal-separator {
+        margin: 10px 0;
+    }
+}
